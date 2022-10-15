@@ -28,15 +28,15 @@ class HomePage extends StatelessWidget {
               child: Card(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20)),
-                child: Container(
+                child: SizedBox(
                   width: Global.width(context)  * 0.6,
                   height: Global.height(context)  * 0.25,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      const Icon(Icons.add, size: 30),
-                      const Text(
+                    children: const [
+                       Icon(Icons.add, size: 30),
+                       Text(
                         "Create Form",
                         style: TextStyle(fontSize: 20),
                       )

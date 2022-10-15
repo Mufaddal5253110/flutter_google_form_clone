@@ -19,7 +19,7 @@ class _PreviewFormPageState extends State<PreviewFormPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Form Preview"),
+        title: const Text("Form Preview"),
       ),
       body: ListView(
         children: [
@@ -29,14 +29,14 @@ class _PreviewFormPageState extends State<PreviewFormPage> {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)),
               child: Container(
-                padding: EdgeInsets.all(15.0),
+                padding: const EdgeInsets.all(15.0),
                 width: Global.width(context) * 0.9,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       widget.form.title,
-                      style: TextStyle(fontSize: 25),
+                      style: const TextStyle(fontSize: 25),
                       textAlign: TextAlign.left,
                     ),
                     Text(
@@ -55,7 +55,7 @@ class _PreviewFormPageState extends State<PreviewFormPage> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
                     child: Container(
-                      padding: EdgeInsets.all(15.0),
+                      padding: const EdgeInsets.all(15.0),
                       width: Global.width(context) * 0.9,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,11 +64,11 @@ class _PreviewFormPageState extends State<PreviewFormPage> {
                             formdata.title,
                             textAlign: TextAlign.left,
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           (formdata.formType == FormType.checkbox)
                               ? ListView(
                                   shrinkWrap: true,
-                                  physics: NeverScrollableScrollPhysics(),
+                                  physics: const NeverScrollableScrollPhysics(),
                                   children: [
                                     ...formdata.options
                                         .map(

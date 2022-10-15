@@ -21,7 +21,7 @@ class _CreateFormPageState extends State<CreateFormPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Create Form"),
+        title: const Text("Create Form"),
         actions: [
           if (_formList.length > 0)
             IconButton(
@@ -34,13 +34,13 @@ class _CreateFormPageState extends State<CreateFormPage> {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: ((context) => PreviewFormPage(form: newForm))));
               },
-              icon: Icon(Icons.remove_red_eye),
+              icon: const Icon(Icons.remove_red_eye),
             ),
         ],
       ),
       body: ListView(
         children: [
-          Container(
+          SizedBox(
             height: Global.height(context) * 0.1,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -106,13 +106,13 @@ class _CreateFormPageState extends State<CreateFormPage> {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)),
               child: Container(
-                padding: EdgeInsets.all(15.0),
+                padding: const EdgeInsets.all(15.0),
                 child: Column(
                   children: [
                     TextFormField(
                       initialValue: _formTitle,
-                      style: TextStyle(fontSize: 20),
-                      decoration: InputDecoration(hintText: "Form title"),
+                      style: const TextStyle(fontSize: 20),
+                      decoration: const InputDecoration(hintText: "Form title"),
                       onChanged: (val) {
                         if (val.trim().isEmpty == true) {
                           _formTitle = "Untitled Form";
@@ -123,7 +123,7 @@ class _CreateFormPageState extends State<CreateFormPage> {
                       },
                     ),
                     TextFormField(
-                      decoration: InputDecoration(hintText: "Form description"),
+                      decoration: const InputDecoration(hintText: "Form description"),
                       onChanged: (val) {
                         if (val.trim().isNotEmpty == true) {
                           _description = val;
@@ -140,40 +140,38 @@ class _CreateFormPageState extends State<CreateFormPage> {
             shrinkWrap: true,
             itemCount: _formList.length,
             padding: const EdgeInsets.all(20),
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             itemBuilder: ((context, index) {
               return Card(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20)),
                 child: Container(
-                  padding: EdgeInsets.all(10.0),
+                  padding:const EdgeInsets.all(10.0),
                   child: Column(
                     children: [
-                      Container(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              _formList[index].formType == FormType.checkbox
-                                  ? "Checkboxes"
-                                  : "Dropdown",
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                              ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            _formList[index].formType == FormType.checkbox
+                                ? "Checkboxes"
+                                : "Dropdown",
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
                             ),
-                            GestureDetector(
-                              onTap: () {
-                                _formList.removeAt(index);
-                                setState(() {});
-                              },
-                              child: Icon(Icons.delete),
-                            )
-                          ],
-                        ),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              _formList.removeAt(index);
+                              setState(() {});
+                            },
+                            child: const Icon(Icons.delete),
+                          )
+                        ],
                       ),
                       TextFormField(
                         initialValue: _formList[index].title,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           hintText: "Question",
                         ),
                         onChanged: (val) {
@@ -186,7 +184,7 @@ class _CreateFormPageState extends State<CreateFormPage> {
                         },
                       ),
                       TextFormField(
-                        decoration: InputDecoration(hintText: "Add Options"),
+                        decoration: const InputDecoration(hintText: "Add Options"),
                         onFieldSubmitted: (val) {
                           if (!_formList[index].options.contains(val.trim())) {
                             _formList[index].options.add(val.trim());
@@ -194,10 +192,10 @@ class _CreateFormPageState extends State<CreateFormPage> {
                           }
                         },
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       ListView(
                         shrinkWrap: true,
-                        physics: NeverScrollableScrollPhysics(),
+                        physics: const NeverScrollableScrollPhysics(),
                         children: [
                           ..._formList[index]
                               .options
